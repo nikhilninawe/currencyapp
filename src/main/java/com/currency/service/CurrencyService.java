@@ -9,6 +9,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.client.AsyncRestTemplate;
 
 import com.currency.jpa.CurrencyDao;
+import com.currency.pojo.Currency;
 import com.currency.pojo.CurrencyDTO;
 import com.currency.pojo.CurrencyRate;
 
@@ -32,6 +33,11 @@ public class CurrencyService {
 		ListenableFuture<ResponseEntity<CurrencyRate>> rates = 
 				asyncRestTemplate.getForEntity(OPEN_EXCHANGE_LATEST_RATES, CurrencyRate.class);
 		return new CurrencyConverterAdapter(rates, fromCode, toCode, amount);
+	}
+	
+	public boolean exists(String currency){		
+		Currency c = dao.findByCode(currency);
+		return c != null;
 	}
 	
 }

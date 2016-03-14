@@ -10,5 +10,7 @@ import com.currency.pojo.Currency;
 public interface CurrencyDao extends JpaRepository<Currency, Long>, JpaSpecificationExecutor<Currency>  {
 	
 	List<Currency> findAll();
+	
+	Currency findByCode(String code);
 
 }

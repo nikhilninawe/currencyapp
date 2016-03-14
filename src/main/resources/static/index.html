@@ -19,6 +19,7 @@
 <script type="text/javascript" src="js/interaction.js"></script>
 
 <script type="text/javascript" src="js/allCurrencies.js"></script>
+<script type="text/javascript" src="js/validator.js"></script>
 
 </head>
 
@@ -54,30 +55,42 @@
 				</table>
 			</div></li>
 		<li id="converter" role="presentation"><a href="#converter">Converter</a>
-		<br>
-			<form role="form">
-				<div class="form-group">
-					<label for="usr">From Currency (Code):</label> <input type="text"
-						class="form-control" id="fromCode">
-				</div>
-				<div class="form-group">
-					<label for="pwd">To Currency (Code):</label> <input type="text"
-						class="form-control" id="toCode">
-				</div>
-				<div class="form-group">
-					<label for="pwd">Amount:</label> <input type="number"
+			<br>
+			<form id="form" role="form" data-toggle="validator">
+			
+				<div class="form-group has-feedback">
+					<label for="pwd">Amount:</label> <input required type="number"
 						class="form-control" id="fromAmount">
+					<span
+						class="glyphicon form-control-feedback" aria-hidden="true"></span>
+					<div class="help-block with-errors"></div>
 				</div>
-				<button id="submitBtn" type="button" class="btn btn-default">Submit</button>
-
+				<div class="form-group has-feedback">
+					<label for="usr">From Currency (Code):</label>
+					 <input required name="currency" data-remote="/validate" type="text" class="form-control"	id="fromCode">
+						 <span
+						class="glyphicon form-control-feedback" aria-hidden="true"></span>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group has-feedback">
+					<label for="pwd">To Currency (Code):</label> 
+					<input required  name="currency" data-remote="/validate" type="text" class="form-control" id="toCode">
+					<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+					<div class="help-block with-errors"></div>
+				</div>
+				
+				
+				<div class="form-group">
+					<button id="submitBtn" type="submit"  class="btn btn-primary">Submit</button>
+				</div>
 			</form>
 
 			<div class="form-group">
-				<label  for="pwd">Converted Amount:</label> 
+				<label for="pwd">Converted Amount:</label>
 				<div id="result"></div>
 			</div>
 		</li>
-		
+
 	</ul>
 </body>
 </html>
