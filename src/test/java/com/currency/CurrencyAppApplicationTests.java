@@ -31,7 +31,7 @@ public class CurrencyAppApplicationTests {
 		assertEquals(171, ls.get().size());
 		
 		ListenableFuture<Double> converted = api.convert("AED", "INR", 1.0);
-		assertEquals(18.23, converted.get().doubleValue(), 0.1);
+		assertEquals(18.43, converted.get().doubleValue(), 0.5);
 	}
 
 }

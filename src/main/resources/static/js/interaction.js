@@ -7,7 +7,6 @@ $(document).ready(function() {
 	$("#converter").click(function(){
 		$("#converter").addClass("active");
 		$("#list").removeClass("active");
-
 	}); 
 
 	$("#list").click(function(){
