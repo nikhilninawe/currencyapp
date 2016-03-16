@@ -1,4 +1,8 @@
 
+GRANT ALL PRIVILEGES ON *.* To 'suser'@'localhost' IDENTIFIED BY 'secpass';
+mysql -u suser -psecpass <schema.sql 
+mysql -u suser -psecpass crossover <data.sql 
+
 
 drop database if exists crossover;
 create database crossover;
